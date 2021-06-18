@@ -24,4 +24,5 @@ yarn-error.log*
 
 /cache
 /test/sample-test.js
+/src/artifacts 
 
