@@ -49,7 +49,9 @@ function App() {
   }  
 
   async function setHash() {  
+    console.log(hash)
     if (!hash) return
+
     if (typeof window.ethereum !== 'undefined') {
     await requestAccount();
     const provider = new ethers.providers.Web3Provider(window.ethereum);
@@ -58,14 +60,20 @@ function App() {
     const transaction = await contract.mint(hash);
     await transaction.wait();
    }
+   alert('madeit') 
   }
 
-  const submitForm = () => { 
+  const submitForm = async () => { 
+    
     const formData = new FormData(); 
     formData.append('image',selectedFile); 
-    alert(selectedFile)
     axios.post('http://localhost:5555/single', formData).then((res) => { alert("fille uploaded")})
     .catch((err) =>alert("FileUpload Error")); 
+  }
+
+ let handleChange = (e) => { 
+   setSelectedFile(e.target.files[0]) 
+   setHashValue(e.target.files[0].name)
   }
 
   return (
@@ -81,12 +89,13 @@ function App() {
          type="file"
          name="image" 
          id={selectedFile}
-         onChange={(e) => setSelectedFile(e.target.files[0])}
+         onChange={ (e) => handleChange(e)}
        />
-     <button onClick ={submitForm}> Submit </button>
+     <button onClick ={submitForm}> Upload Image </button>
+
      </form>  
-     <input onChange={e => setHashValue(e.target.value)} placeholder="Set hash" />
-     <button onClick={setHash}>---------------mint---------------</button>
+      <p>-- Mint NFT -- </p>
+     <button onClick ={setHash}> Mint NFT </button>
      <p>-- Your NFT's -- </p>
      <button onClick={getUserHashes}>Fetch Hash</button>
      <p > {JSON.stringify(hashesOwned[1])} </p>  
