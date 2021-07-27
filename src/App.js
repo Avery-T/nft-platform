@@ -4,6 +4,8 @@ import './App.css';
 import { useState, useEffect } from 'react'; 
 import { ethers } from 'ethers'; 
 import Picture from './artifacts/contracts/Picture.sol/Picture.json'
+import Navbar from './components/Navbar'; 
+import {BrowserRouter as Router, Switch, Route } from 'react-router-dom'; 
 
 const pictureAddress =  '0x5FbDB2315678afecb367f032d93F642f64180aa3' 
 
@@ -78,6 +80,12 @@ function App() {
 
   return (
     <div className="App">  
+     <Router> 
+     <Navbar /> 
+     <Switch> 
+       <Route path='/' exact/> 
+      </Switch> 
+     </Router>
      <header className="App-header">
      <form> 
        <input
