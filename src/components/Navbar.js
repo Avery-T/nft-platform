@@ -1,10 +1,8 @@
 import React, {useState} from 'react' 
 import {Link} from 'react-router-dom'
 import './Navbar.css'
-import {Button} from './Button'; 
+import { Button } from './Button'; 
  
-
-
 function Navbar() { 
 
 const  closeMobileMenu = () => {setClick(false)} 
@@ -37,7 +35,7 @@ window.addEventListener('resize', showButton);
        <Link to='/Home' className='nav-links' onClick={closeMobileMenu}> Home </Link>  
      </li>
      <li className='nav-item'>
-       <Link to='/Mint' className='nav-links' onClick={closeMobileMenu}> Mint NFT </Link>
+       <Link to='/nft' className='nav-links' onClick={closeMobileMenu}> Mint NFT </Link>
      </li>
      </ul>
      {button && <Button buttonStyle='btn--outline'> Mint NFT </Button> }
