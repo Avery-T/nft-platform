@@ -3,6 +3,7 @@ import './App.css';
 import { useState, useEffect } from 'react'; 
 import Navbar from './components/Navbar'; 
 import {BrowserRouter as Router, Switch, Route } from 'react-router-dom'; 
+import Home from './components/Home.js'
 import NftPage from './components/NftPage.js' 
 
 function App() {
@@ -10,10 +11,9 @@ function App() {
     <div className="App">  
      <Router> 
      <Navbar /> 
-     <Switch> 
-       <Route path='/' exact/> 
-      </Switch> 
-     <Route path='/nft' component={NftPage}/> 
+       <Route exact path='/' component={Home}/> 
+
+     <Route exact path='/nft' component={NftPage}/> 
      </Router>
      <header className="App-header">
     </header> 

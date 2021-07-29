@@ -1,0 +1,20 @@
+
+.background-container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  fex-direction: column;
+  justify-content: center; 
+  align-items: center;
+  object-fit: contain;
+} 
+ 
+.image{
+    object-fit: cover; 	
+    width: 100%; 
+    height: 100%; 
+    position:fixed;
+    z-index: -1; 
+}
+
+
