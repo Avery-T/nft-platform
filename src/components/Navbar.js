@@ -4,11 +4,10 @@ import './Navbar.css'
 import { Button } from './Button'; 
  
 function Navbar() { 
-
-const  closeMobileMenu = () => {setClick(false)} 
-const [click, setClick] = useState(false)
-const [button,setButton] = useState(true)
-const handleClick = () => setClick(!click); 
+ const  closeMobileMenu = () => {setClick(false)} 
+ const [click, setClick] = useState(false)
+ const [button,setButton] = useState(true)
+ const handleClick = () => setClick(!click); 
 
 const showButton = () => { 
  if(window.innerWidth <= 960) 
@@ -25,8 +24,7 @@ window.addEventListener('resize', showButton);
      <div className='navbar-container'> 
       <Link to='/' className='navbar-logo'>
        NFT <i className='fab fa-typo3'/>
-
-      </Link>
+       </Link>
       <div className='menu-icon' onClick={handleClick}> 
         <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
      </div> 
